@@ -19,7 +19,7 @@ idGenerator : static
 Must generate customer ids automatically : auto increment)
 PK(UID) : email
 
-constructors 
+ctors 
 1. all args ctor
 2. PK based ctor
 

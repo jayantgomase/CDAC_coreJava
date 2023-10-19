@@ -1,4 +1,4 @@
-package day10;
+package day10.core;
 
 import java.time.LocalDate;
 
@@ -13,8 +13,7 @@ public class Customer {
 	private ServicePlan plan;
 	private static int idGenerator = 1000;
 	
-	public Customer(String fname, String lname, String email, String password, double amount, LocalDate dob,
-			ServicePlan plan) {
+	public Customer(String fname, String lname, String email, String password, double amount,ServicePlan plan, LocalDate dob) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -65,4 +64,3 @@ public class Customer {
 	}
 	
 }
-

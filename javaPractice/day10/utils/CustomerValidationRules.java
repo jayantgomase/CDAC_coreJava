@@ -1,8 +1,12 @@
-package day10;
+package day10.utils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+
+import day10.core.Customer;
+import day10.core.ServicePlan;
+import day10.custom_Exception.CustomerValidationException;
 
 public class CustomerValidationRules {
 	
@@ -32,7 +36,7 @@ public class CustomerValidationRules {
 		ServicePlan validPlan = parseAndValidatePlan(plan);
 		validateAmount(regAmount, validPlan);
 		LocalDate dob2 = parseDob(dob);
-		return new Customer(firstName, lastName, email, password, regAmount, dob2, validPlan);
+		return new Customer(firstName, lastName, email, password, regAmount, validPlan, dob2);
 	}
 	
 	public static Customer authenticateCustomer(String email, String pwd, List<Customer> customers)

@@ -1,10 +1,13 @@
-package day10;
+package day10.tester;
+
+import static day10.utils.CustomerValidationRules.authenticateCustomer;
+import static day10.utils.CustomerValidationRules.validateAll;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import static day10.CustomerValidationRules.validateAll;
-import static day10.CustomerValidationRules.authenticateCustomer;
+
+import day10.core.Customer;
 
 public class CustomerManagement {
 
@@ -23,7 +26,7 @@ public class CustomerManagement {
 					switch(sc.nextInt()) {
 					case 1 : 
 						System.out.println(
-								"Enter firstName,  lastName,  email,  password, regAmount,  dob(yyyy-MM-dd),  plan");
+								"Enter firstName,  lastName,  email,  password, regAmount, plan, dob(yyyy-MM-dd)");
 						Customer customer = validateAll(sc.next(), sc.next(), sc.next(), sc.next(),
 								sc.nextDouble(), sc.next(), sc.next(), customerList);
 						customerList.add(customer);
@@ -31,7 +34,7 @@ public class CustomerManagement {
 						break;
 						
 					case 2 : 
-						System.out.println("Enter email n pwd");
+						System.out.println("Enter email n password : ");
 						customer=authenticateCustomer(sc.next(), sc.next(), customerList);
 						System.out.println("Login successful , your details " + customer);
 						break;
@@ -60,4 +63,3 @@ public class CustomerManagement {
 		}
 	}
 }
-
