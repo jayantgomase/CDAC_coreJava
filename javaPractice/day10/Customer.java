@@ -3,6 +3,7 @@ package day10;
 import java.time.LocalDate;
 
 public class Customer {
+	private int customerId;
 	private String fname;
 	private String lname;
 	private String email;
@@ -10,9 +11,9 @@ public class Customer {
 	private double amount;
 	private LocalDate dob;
 	private ServicePlan plan;
-	private static int id = 1000;
+	private static int idGenerator = 1000;
 	
-	public Customer(String fname, String lname, String email, String password, double amount, String dob,
+	public Customer(String fname, String lname, String email, String password, double amount, LocalDate dob,
 			ServicePlan plan) {
 		super();
 		this.fname = fname;
@@ -20,19 +21,13 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 		this.amount = amount;
-		this.dob = LocalDate.parse(dob);
+		this.dob = dob;
 		this.plan = plan;
-		++id;
+		this.customerId = ++idGenerator;
 	}
 
-	
-	
 	public String getEmail() {
 		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPassword() {
@@ -56,7 +51,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", password=" + password
+		return "Customer [id=" + customerId + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", password=" + password
 				+ ", amount=" + amount + ", dob=" + dob + ", plan=" + plan +"]";
 	}
 	
