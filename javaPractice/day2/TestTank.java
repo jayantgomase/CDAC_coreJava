@@ -1,6 +1,6 @@
 package day2;
 
-public class Assignment {
+public class TestTank {
 	public static void main(String[] args) {
 	    Tank t1 = new Tank(10);
 	    Tank t2 = new Tank(20);
