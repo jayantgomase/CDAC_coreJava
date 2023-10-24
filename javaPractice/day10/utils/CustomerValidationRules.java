@@ -1,6 +1,7 @@
 package day10.utils;
 
 import java.time.LocalDate;
+import static day10.utils.CustomerUtils.searchByEmail;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class CustomerValidationRules {
 	}
 	
 	public static Customer validateAll(String firstName, String lastName, String email, String password,
-			double regAmount, String dob, String plan, List<Customer> customers) throws CustomerValidationException {
+			double regAmount, String plan, String dob, List<Customer> customers) throws CustomerValidationException {
 		checkDuplicates(email, customers);
 		ServicePlan validPlan = parseAndValidatePlan(plan);
 		validateAmount(regAmount, validPlan);
@@ -42,14 +43,13 @@ public class CustomerValidationRules {
 	public static Customer authenticateCustomer(String email, String pwd, List<Customer> customers)
 			throws CustomerValidationException {
 		Customer customer = new Customer(email, pwd);
-		if (!customer.getEmail().equals(email))
+		if (!customers.contains(customer))
 			throw new CustomerValidationException ("Invalid Email !!!");
 		else {
-		if (!customer.getPassword().equals(pwd))
+		if (!searchByEmail(email, customers).getPassword().equals(pwd))
 			throw new CustomerValidationException ("Invalid Password!!!");
 		}
 		return customer;
 	}
-	
 	
 }

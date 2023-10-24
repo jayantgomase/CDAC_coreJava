@@ -25,6 +25,17 @@ public class Customer {
 		this.customerId = ++idGenerator;
 	}
 
+	public Customer(String email) {
+		super();
+		this.email = email;
+	}
+	
+	public Customer(String email, String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -36,17 +47,7 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public Customer(String email) {
-		super();
-		this.email = email;
-	}
 	
-	public Customer(String email, String password) {
-		super();
-		this.email = email;
-		this.password = password;
-	}
 
 	@Override
 	public String toString() {
