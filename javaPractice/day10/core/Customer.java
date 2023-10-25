@@ -2,7 +2,7 @@ package day10.core;
 
 import java.time.LocalDate;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
 	private int customerId;
 	private String fname;
 	private String lname;
@@ -13,7 +13,7 @@ public class Customer {
 	private ServicePlan plan;
 	private static int idGenerator = 1000;
 	
-	public Customer(String fname, String lname, String email, String password, double amount,ServicePlan plan, LocalDate dob) {
+	public Customer (String fname, String lname, String email, String password, double amount,ServicePlan plan, LocalDate dob) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -23,6 +23,14 @@ public class Customer {
 		this.dob = dob;
 		this.plan = plan;
 		this.customerId = ++idGenerator;
+	}
+
+	public String getLname() {
+		return lname;
+	}
+
+	public LocalDate getDob() {
+		return dob;
 	}
 
 	public Customer(String email) {
@@ -62,6 +70,12 @@ public class Customer {
 			return this.email.equals(tempcust.email);
 		}
 		return false;
+	}
+	
+	@Override
+	public int compareTo(Customer c) {
+		// TODO Auto-generated method stub
+		return this.email.compareTo(c.email);
 	}
 	
 }
